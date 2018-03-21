@@ -3,17 +3,17 @@ import fs from 'fs';
 import path from 'path';
 
 // Define Sequelize Connnection
-// const {
-//   POSTGRES_DATABASE,
-//   POSTGRES_USERNAME,
-//   POSTGRES_PASSWORD,
-//   POSTGRES_HOST,
-//   POSTGRES_PORT,
-// } = process.env;
+const {
+  POSTGRES_DATABASE,
+  POSTGRES_USERNAME,
+  POSTGRES_PASSWORD,
+  POSTGRES_HOST,
+  POSTGRES_PORT,
+} = process.env;
 
-// sequelize = new Sequelize(`postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DATABASE}`, {
-//   logging: false,
-// });
+const sequelize = new Sequelize(`postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DATABASE}`, {
+  logging: false,
+});
 
 const db = {};
 // Model Import
