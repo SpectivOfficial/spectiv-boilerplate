@@ -37,7 +37,7 @@ function signUpUser(e) {
   }
 
   axios({
-    url: '/api/sign-up',
+    url: '/api/create-user',
     method: 'POST',
     data: {
       email: email,
