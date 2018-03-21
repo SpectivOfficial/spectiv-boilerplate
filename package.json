@@ -1,7 +1,7 @@
 {
-  "name": "react-boiler-plate",
+  "name": "boiler-plate",
   "version": "1.0.0",
-  "description": "This is a boilerplate for React and Express",
+  "description": "Boiler plate for spectiv",
   "main": "index.js",
   "scripts": {
     "start": "npm run dev",
@@ -13,20 +13,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chungw51993/react-boiler-plate.git"
+    "url": "git+https://github.com/SpectivOfficial/boiler-plate.git"
   },
   "author": "Jin Chung",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/chungw51993/react-boiler-plate/issues"
+    "url": "https://github.com/SpectivOfficial/boiler-plate/issues"
   },
-  "homepage": "https://github.com/chungw51993/react-boiler-plate#readme",
+  "homepage": "https://github.com/SpectivOfficial/boiler-plate#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "compression": "^1.7.2",
     "connect-redis": "^3.3.3",
-    "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "morgan": "^1.9.0",
