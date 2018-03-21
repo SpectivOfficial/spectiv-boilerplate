@@ -1,6 +1,9 @@
 import validator from 'validator';
 import rules from 'password-rules';
 import passport from 'passport';
+import crypto from 'crypto';
+import async from 'async';
+import nodemailer from 'nodemailer';
 
 import db from './../models';
 
@@ -104,5 +107,24 @@ userController.createUser = (req, res, next) => {
   });
 
 }
+userController.login = (req, res) => {
+  if (req.isAuthenticated()) {
+    return res.redirect('/');
+  }
+
+  return res.status(200).render('login.html');
+};
+
+userController.signup = (req, res) => {
+  if (req.isAuthenticated()) {
+    return res.redirect('/');
+  }
+
+  return res.status(200).render('signup.html');
+};
+
+userController.forgot = (req, res) => {
+  return res.status(200).render('forgot.html');
+};
 
 export default userController;

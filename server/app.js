@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import engines from 'consolidate';
 import morgan from 'morgan';
 import path from 'path';
 import compression from 'compression';
@@ -53,6 +54,11 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(morgan('dev'));
 app.use(allowCrossDomain);
 
+app.use('/static', express.static(`${__dirname}/public`));
+app.set('views', `${__dirname}/views`);
+app.engine('html', engines.mustache);
+app.set('view engine', 'html');
+
 // Uncomment for authentication
 app.use(session({
   secret: process.env.PASSPORT_SECRET,
@@ -64,6 +70,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.post('/authenticate', userController.authenticate);
+
+app.use('/', routes);
 
 app.use('/', routes);
 
