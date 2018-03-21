@@ -9,7 +9,6 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 
 import passport from 'passport';
 import session from 'express-session';
-import cookieParser from 'cookie-parser';
 
 import './config/passport';
 
@@ -50,7 +49,6 @@ const allowCrossDomain = (req, res, next) => {
 // Set up middlewares
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-app.use(cookieParser(process.env.JWT_SECRET)); // Need to add JWT_SECRET to .env
 app.use(morgan('dev'));
 app.use(allowCrossDomain);
 app.use('/', routes);
