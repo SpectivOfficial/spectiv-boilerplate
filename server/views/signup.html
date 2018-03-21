@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Spectiv | Sign Up</title>
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <section id="sign-up">
+        <form onsubmit="signUpUser(event);">
+          <div class="card-header">Sign Up</div>
+          <div class="card-content">
+            <div class="input-label">
+              <label for="username">Username</label>
+              <input id="username" autofocus="autofocus" type="text" name="username">
+            </div>
+            <div class="input-label">
+              <label for="email">Email</label>
+              <input id="email" type="text" name="email">
+            </div>
+            <div class="input-label">
+              <label for="password">Password</label>
+              <input id="password" type="password" name="password">
+            </div>
+            <div class="input-label">
+              <label for="confirmPassword">Confirm Password</label>
+              <input id="confirmPassword" type="password" name="confirmPassword">
+            </div>
+            <button id="submit-btn" type="submit">Sign Up</button>
+            <div class="divider"></div>
+            <a class="login-link" href="/login">Already have an account?</a>
+          </div>
+        </form>
+    </section>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/static/scripts/signup.js"></script>
+  </body>
+</html>

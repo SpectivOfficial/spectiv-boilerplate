@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Spectiv | Forget Password</title>
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <section id="forget">
+        <form onsubmit="forgotPassword(event);">
+          <div class="card-header">Forgot Password</div>
+          <div class="card-content">
+            <div class="before-reset-content">
+              <div class="input-label">
+                <label for="username">Username</label>
+                <input id="username" autofocus="autofocus" type="text" name="username">
+              </div>
+              <div class="input-label">
+                <label for="email">Email</label>
+                <input id="email" type="text" name="email">
+              </div>
+              <button id="submit-btn" type="submit">Reset</button>
+            </div>
+            <div class="divider"></div>
+            <a class="sign-up" href="/login">Login</a>
+          </div>
+        </form>
+    </section>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/static/scripts/forgot.js"></script>
+  </body>
+</html>

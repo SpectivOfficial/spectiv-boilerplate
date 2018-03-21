@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta charset="utf-8">
+    <title>Spectiv | Login</title>
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <section id="login">
+        <form onsubmit="loginUser(event);">
+          <div class="card-header">Login</div>
+          <div class="card-content">
+            <div class="input-label">
+              <label for="username">Username</label>
+              <input id="username" autofocus="autofocus" type="text" name="username">
+            </div>
+            <div class="input-label">
+              <label for="password">Password</label>
+              <input id="password" type="password" name="password">
+            </div>
+            <button id="submit-btn" type="submit">Login</button>
+            <div class="divider"></div>
+            <a class="sign-up" href="/signup">Don't have an account?</a>
+            <a href="/forgot">Forgot password?</a>
+          </div>
+        </form>
+    </section>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/static/scripts/login.js"></script>
+  </body>
+</html>
