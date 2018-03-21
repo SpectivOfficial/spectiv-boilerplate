@@ -62,3 +62,10 @@ It will create a ```/dist``` folder
 ## Style Guide
 
 This boiler plate follows [Airbnb's](https://github.com/airbnb/javascript/tree/master/react) style guide for React
+
+## Contributing
+
+Please contribute using [Github Flow](https://guides.github.com/introduction/flow/).
+  1. Create a branch
+  2. Add commits
+  3. [open a pull request](https://github.com/fraction/readme-boilerplate/compare/) for a review.
