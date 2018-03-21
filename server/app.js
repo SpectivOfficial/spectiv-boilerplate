@@ -12,15 +12,16 @@ import session from 'express-session';
 
 import './config/passport';
 
+import userController from './controllers/userController';
 import webpackConfig from './../webpack.config';
 import routes from './routes';
 
 // Uncomment to use redis
-// const RedisStore = require('connect-redis')(session);
+const RedisStore = require('connect-redis')(session);
 
-// const sessionStore = new RedisStore({
-//   url: process.env.REDDIS_CONNECTION_STRING,
-// });
+const sessionStore = new RedisStore({
+  url: process.env.REDDIS_CONNECTION_STRING,
+});
 
 const compiler = webpack(webpackConfig);
 const middleware = webpackMiddleware(compiler, {
@@ -51,17 +52,20 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(morgan('dev'));
 app.use(allowCrossDomain);
-app.use('/', routes);
 
 // Uncomment for authentication
-// app.use(session({
-//   secret: process.env.PASSPORT_SECRET,
-//   store: sessionStore,
-//   resave: false,
-//   saveUninitialized: false,
-// }));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(session({
+  secret: process.env.PASSPORT_SECRET,
+  store: sessionStore,
+  resave: false,
+  saveUninitialized: false,
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.post('/authenticate', userController.authenticate);
+
+app.use('/', routes);
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
 if (isDeveloping) {

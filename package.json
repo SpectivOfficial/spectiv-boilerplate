@@ -23,6 +23,7 @@
   "homepage": "https://github.com/SpectivOfficial/boiler-plate#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "compression": "^1.7.2",
     "connect-redis": "^3.3.3",
@@ -31,6 +32,7 @@
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "password-rules": "0.0.3",
     "pg": "^7.4.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -39,7 +41,8 @@
     "react-router-redux": "^4.0.8",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "sequelize": "^4.37.2"
+    "sequelize": "^4.37.2",
+    "validator": "^9.4.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

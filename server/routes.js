@@ -1,7 +1,11 @@
 import { Router } from 'express';
 
+// Controller Logic
+import userController from './controllers/userController';
+
 const routes = Router();
 
-// Add Routes
+// User routes
+routes.post('/api/create-user', userController.createUser);
 
 export default routes;
