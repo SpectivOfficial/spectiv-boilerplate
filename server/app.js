@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import engines from 'consolidate';
 import morgan from 'morgan';
 import path from 'path';
 import compression from 'compression';
@@ -51,7 +52,10 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(morgan('dev'));
 app.use(allowCrossDomain);
-app.use('/', routes);
+app.use('/static', express.static(`${__dirname}/public`));
+app.set('views', `${__dirname}/views`);
+app.engine('html', engines.mustache);
+app.set('view engine', 'html');
 
 // Uncomment for authentication
 // app.use(session({
@@ -62,6 +66,8 @@ app.use('/', routes);
 // }));
 // app.use(passport.initialize());
 // app.use(passport.session());
+
+app.use('/', routes);
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
 if (isDeveloping) {
