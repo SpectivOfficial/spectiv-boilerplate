@@ -17,7 +17,7 @@ export default (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-    username: {
+    email: {
       type: DataTypes.STRING,
       unique: true,
       allowNull: false,
@@ -28,6 +28,8 @@ export default (sequelize, DataTypes) => {
     isInactive: {
       type: DataTypes.BOOLEAN,
     },
+    resetPasswordToken: DataTypes.STRING,
+    resetPasswordExpires: DataTypes.DATE,
   });
 
   User.validatePassword = (password, pwd, done, user) => {

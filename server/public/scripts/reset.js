@@ -1,31 +1,33 @@
 var errorMsg = document.getElementById('error-msg');
 var submitBtn = document.getElementById('submit-btn');
-var beforeContent = document.querySelector('.before-reset-content');
 
-function forgotPassword(e) {
+function resetPassword(e) {
   e.preventDefault();
   hideErrorMsg();
   displayLoading();
 
-  const username = document.getElementById('username').value;
-  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const confirm = document.getElementById('confirm').value;
+  const resetToken = window.location.pathname.split('/')[2];
 
-  if (!username || !email) {
+  if (password !== confirm) {
     removeLoading();
-    return displayErrorMsg('Username and Email is required.');
+    return displayErrorMsg('Password does not match please try again.');
+  }
+
+  if (password.length < 8) {
+    removeLoading();
+    return displayErrorMsg('Password must be 8 characters or more');
   }
 
   axios({
     method: 'POST',
-    url: '/api/forgot',
+    url: `/api/reset/${resetToken}`,
     data: {
-      username,
-      email,
+      password,
     },
   }).then((res) => {
-    removeLoading();
-    // displayErrorMsg('Password reset link has been sent to your email.');
-    resetSuccessful();
+    window.location = '/login?reset=true';
   }).catch((err) => {
     removeLoading();
     displayErrorMsg(err.response.data.message);
@@ -52,12 +54,4 @@ function displayLoading() {
 function removeLoading() {
   submitBtn.innerHTML = 'Reset';
   submitBtn.disabled = false;
-}
-
-function resetSuccessful() {
-  beforeContent.style.opacity = '0';
-  setTimeout(() => {
-    beforeContent.innerHTML = '<img alt="Forgot Image" class="forgot-img" src="/static/images/confirmpw.svg" /><h4 class="success-msg">Password reset link has been sent to your email.</h4>';
-    beforeContent.style.opacity = '1';
-  }, 300);
 }
